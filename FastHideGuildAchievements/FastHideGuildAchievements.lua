@@ -12,6 +12,19 @@ local messages = {
     zhTW = "公會成就已封鎖！",                 -- Chinesisch (traditionell)
     itIT = "Impresa di gilda bloccata!",        -- Italienisch
     ptBR = "Conquista de guilda bloqueada!",    -- Portugiesisch (BR)
+    addonLoaded = {
+        enUS = "FastHideGuildAchievements loaded successfully!",
+        deDE = "FastHideGuildAchievements erfolgreich geladen!",
+        frFR = "FastHideGuildAchievements chargé avec succès!",
+        esES = "¡FastHideGuildAchievements cargado con éxito!",
+        esMX = "¡FastHideGuildAchievements cargado con éxito!",
+        ruRU = "FastHideGuildAchievements успешно загружен!",
+        koKR = "FastHideGuildAchievements 성공적으로 로드되었습니다!",
+        zhCN = "FastHideGuildAchievements 加载成功！",
+        zhTW = "FastHideGuildAchievements 加載成功！",
+        itIT = "FastHideGuildAchievements caricato con successo!",
+        ptBR = "FastHideGuildAchievements carregado com sucesso!",
+    }
 }
 
 -- Funktion, die die Anzeige von Gildenerfolgen verhindert und eine Nachricht im Chat ausgibt
@@ -38,3 +51,16 @@ end
 local f = CreateFrame("Frame")
 f:RegisterEvent("ACHIEVEMENT_EARNED")
 f:SetScript("OnEvent", HideGuildAchievements)
+
+-- Slash-Befehl für das Addon
+SLASH_FASTHIDEGUILDACHIEVEMENTS1 = "/fhga"
+SLASH_FASTHIDEGUILDACHIEVEMENTS2 = "/fasthideguildachievements"
+
+SlashCmdList["FASTHIDEGUILDACHIEVEMENTS"] = function(msg)
+    local locale = GetLocale()
+    if messages.addonLoaded[locale] then
+        print(messages.addonLoaded[locale])
+    else
+        print(messages.addonLoaded["enUS"])
+    end
+end
