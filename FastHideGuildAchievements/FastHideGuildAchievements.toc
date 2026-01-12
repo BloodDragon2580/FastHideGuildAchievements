@@ -1,6 +1,6 @@
 ## Interface: 120001
 ## Title:|cffd6266cFastHideGuildAchievements|r
-## Version: 7.2
+## Version: 7.3
 ## Notes: Quickly hides all guild achievements from being displayed.
 ## Author: BloodDragon2580
 ## SavedVariables: FastFPSandPingDB
